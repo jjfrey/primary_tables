@@ -1,10 +1,7 @@
 class PrimaryTable 
 
     def is_prime(number)
-      return true if [0,1,2,3].include?(number)
-      return false if number % 2 == 0 
-
-      return true
+      return sieve(number).include?(number)
     end
 
     def sieve(number)
