@@ -1,6 +1,7 @@
 class PrimaryTable 
 
     def is_prime(number)
+      return [0,1,2,3].include?(number) if number < 4 
       return sieve(number).include?(number)
     end
 
