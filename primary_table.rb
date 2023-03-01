@@ -1,12 +1,17 @@
 class PrimaryTable 
 
-    def is_prime(number)
+    def is_prime(number)  
       return [0,1,2,3].include?(number) if number < 4 
       return sieve(number).include?(number)
     end
 
-    def sieve(number)
-      primes_numbers = (0..number).to_a
+    def get_primes_for(count)
+
+    end
+
+    def sieve(number, offset=0)
+
+      primes_numbers = (offset..number).to_a
       primes_numbers[0] = primes_numbers[1] = nil
     
       primes_numbers.each do |prime_candidate|
@@ -24,7 +29,19 @@ class PrimaryTable
     end
 
     def initialize(number)
-        
+       output_table(number) 
+    end
+
+    def output_table(number)
+      row_count = number + 1
+      column_count = number + 1
+      number.times do |current_row|      
+        output_row(number, current_row, column_count)
+      end
+    end
+
+    def output_row(number, current_row, column_count)
+
     end
     
 end

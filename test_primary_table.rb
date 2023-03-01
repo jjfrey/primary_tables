@@ -19,5 +19,10 @@ class TestPrimaryTable < Test::Unit::TestCase
     assert_equal(false, pt.is_prime(27))
     assert_equal(false, pt.is_prime(36))
   end
+
+  def test_get_primes_for
+    pt = PrimaryTable.new(1)
+    assert_equal([1], pt.get_primes_for(1))
+  end
  
 end
