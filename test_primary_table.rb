@@ -5,7 +5,7 @@ class TestPrimaryTable < Test::Unit::TestCase
  
   def test_is_prime
     pt = PrimaryTable.new(1)
-    assert_equal(true, pt.is_prime(1))
+    assert_equal(false, pt.is_prime(1))
     assert_equal(true, pt.is_prime(2))
     assert_equal(true, pt.is_prime(3))
     assert_equal(false, pt.is_prime(4))
@@ -22,7 +22,8 @@ class TestPrimaryTable < Test::Unit::TestCase
 
   def test_get_primes_for
     pt = PrimaryTable.new(1)
-    assert_equal([1], pt.get_primes_for(1))
+    assert_equal([2,3], pt.get_primes_for(2))
+    assert_equal([2,3,5], pt.get_primes_for(3))
   end
  
 end

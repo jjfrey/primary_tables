@@ -1,12 +1,22 @@
 class PrimaryTable 
 
     def is_prime(number)  
-      return [0,1,2,3].include?(number) if number < 4 
+      return false if [0,1].include?(number)
+      return [2,3].include?(number) if number < 4 
       return sieve(number).include?(number)
     end
 
     def get_primes_for(count)
+      primes = [2,3]
+      row = 1
+      number_of_primes = count + 1
 
+      until primes.size < number_of_primes
+        row = row + 1
+        primes << sieve(count ^ row, row)
+      end
+
+      return primes[0..count]
     end
 
     def sieve(number, offset=0)
@@ -32,13 +42,13 @@ class PrimaryTable
        output_table(number) 
     end
 
-    def output_table(number)
-      row_count = number + 1
-      column_count = number + 1
-      number.times do |current_row|      
-        output_row(number, current_row, column_count)
-      end
-    end
+    # def output_table(number)
+    #   row_count = number + 1
+    #   column_count = number + 1
+    #   number.times do |current_row|      
+    #     output_row(number, current_row, column_count)
+    #   end
+    # end
 
     def output_row(number, current_row, column_count)
 
